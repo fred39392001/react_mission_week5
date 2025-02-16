@@ -3,7 +3,7 @@ import { useState } from "react"
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-function LoginPage(getProducts) {
+function LoginPage({getProducts, setIsAuth}) {
   const [account, setAccount] = useState({
     username: "example@test.com",
     password: "example"
@@ -29,7 +29,7 @@ function LoginPage(getProducts) {
 
       axios.defaults.headers.common['Authorization'] = token;
 
-      getProducts();
+      // getProducts();
 
       setIsAuth(true);
       
@@ -38,6 +38,27 @@ function LoginPage(getProducts) {
     }
   }
   
+  // const checkUserLogin = async () => {
+  //   try {
+  //     await axios.post(`${BASE_URL}/v2/api/user/check`);
+  //     getProducts();
+  //     setIsAuth(true);
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   const token = document.cookie.replace(
+  //     /(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,
+  //     "$1",
+  //   );
+
+  //   axios.defaults.headers.common['Authorization'] = token;
+
+  //   checkUserLogin();
+  // }, [])
+
   return (
     <div className="d-flex flex-column justify-content-center align-items-center vh-100">
       <h1 className="mb-5">請先登入</h1>
