@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useRef, useState } from "react"
 import { Modal } from 'bootstrap';
 import Pagination from '../components/Pagination';
+import CheckoutForm from "../components/CheckoutForm";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const API_PATH = import.meta.env.VITE_API_PATH;
@@ -510,6 +511,8 @@ function ProductPage() {
           </div>
         </div>
       </div>
+      {/* 🔥 在這裡加上結帳表單 */}
+      <CheckoutForm />
     </>
   )
 }
